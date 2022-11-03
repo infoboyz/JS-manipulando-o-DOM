@@ -2,10 +2,21 @@ const sub = document.querySelector('#subtrair');
 const add = document.querySelector('#somar');
 const braco =document.querySelector('#braco');
 
-add.addEventListener("click", (evento) => {
-    braco.value = parseInt(braco.value) + 1;
+const controle = document.querySelectorAll('.controle-ajuste');
+
+sub.addEventListener("click", () => {
+    manipulaDados("sub");
 })
 
-sub.addEventListener("click", (evento) => {
-    braco.value = parseInt(braco.value) - 1;
+add.addEventListener("click", () => {
+    manipulaDados("add");
 })
+
+function manipulaDados (operacao) {
+    if(operacao === "sub") {
+        braco.value = parseInt(braco.value) - 1;
+    }
+    else if (operacao === "add") {
+        braco.value = parseInt(braco.value) + 1;
+    }
+}
