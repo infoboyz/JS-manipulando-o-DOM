@@ -1,22 +1,20 @@
-const sub = document.querySelector('#subtrair');
-const add = document.querySelector('#somar');
+//Declaracao de referencias
+const controle = document.querySelectorAll('.controle-ajuste');
 const braco =document.querySelector('#braco');
 
-const controle = document.querySelectorAll('.controle-ajuste');
-
-sub.addEventListener("click", () => {
-    manipulaDados("sub");
-})
-
-add.addEventListener("click", () => {
-    manipulaDados("add");
-})
-
+//Funcoes
 function manipulaDados (operacao) {
-    if(operacao === "sub") {
+    if(operacao === "-") {
         braco.value = parseInt(braco.value) - 1;
     }
-    else if (operacao === "add") {
+    else if (operacao === "+") {
         braco.value = parseInt(braco.value) + 1;
     }
 }
+
+//Chamando funcoes
+controle.forEach( (element) => {
+    element.addEventListener("click", (evento) => {
+        manipulaDados(evento.target.textContent)
+    })
+});
