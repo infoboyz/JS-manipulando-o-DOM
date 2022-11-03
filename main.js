@@ -1,0 +1,1 @@
+document.getElementById('texto').innerText = "Ta fogo"
