@@ -1,5 +1,6 @@
 //Declaracao de referencias
 const ajuste = document.querySelectorAll('[data-ajuste]');
+const estatisticas = document.querySelectorAll('[data-estatistica]');
 const pecas = {
     "bracos": {
         "forca": 29,
@@ -37,7 +38,8 @@ const pecas = {
 //Chamando funcoes
 ajuste.forEach( (element) => {
     element.addEventListener("click", (evento) => {
-        manipulaDados(evento.target.dataset.ajuste, evento.target.parentNode)
+        manipulaDados(evento.target.dataset.ajuste, evento.target.parentNode);
+        atualizaEstatisticas(evento.target.dataset.peca);
     })
 });
 
@@ -53,3 +55,8 @@ function manipulaDados (operacao, controle) {
     }
 }
 
+function atualizaEstatisticas (peca) {
+    estatisticas.forEach( (elemento) => {
+        elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
+    })
+}
