@@ -60,3 +60,7 @@ function manipulaDados (operacao, controle, piece) {
         })
     }
 }
+
+function trocaImagem(cor){
+    document.querySelector(".robo").src="img/Robotron 2000 - " + cor + ".png";
+ }
