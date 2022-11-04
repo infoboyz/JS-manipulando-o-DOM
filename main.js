@@ -1,12 +1,12 @@
-const btNotas = document.querySelector('#calcular');
-const resultado = document.querySelector('.resultado');
+const lista = document.querySelector('.lista');
+const botoes = document.querySelectorAll('.botao')
 
-btNotas.addEventListener("click", () => {
-    resultado.innerHTML = "Fui clicado";
+botoes.forEach((elemento) => {
+    elemento.addEventListener("click", () => {
+        if (elemento.dataset.funcao === "mostrar") {
+            lista.classList.remove("visibilidade");
+        } else if (elemento.dataset.funcao === "ocultar") {
+            lista.classList.add("visibilidade")
+        }
+    })
 })
-
-var lista = ["Laranja", "Vermelho", "Branco", "Amarelo", "Rosa"]; 
-
-lista.splice(1,1);
-
-console.log(lista);
