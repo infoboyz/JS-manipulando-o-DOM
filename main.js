@@ -1,20 +1,21 @@
 //Declaracao de referencias
 const controle = document.querySelectorAll('.controle-ajuste');
-const braco =document.querySelector('#braco');
 
 //Funcoes
-function manipulaDados (operacao) {
+function manipulaDados (operacao, controle) {
+    const peca = controle.querySelector('.controle-contador');
+    
     if(operacao === "-") {
-        braco.value = parseInt(braco.value) - 1;
+        peca.value = parseInt(peca.value) - 1;
     }
     else if (operacao === "+") {
-        braco.value = parseInt(braco.value) + 1;
+        peca.value = parseInt(peca.value) + 1;
     }
 }
 
 //Chamando funcoes
 controle.forEach( (element) => {
     element.addEventListener("click", (evento) => {
-        manipulaDados(evento.target.textContent)
+        manipulaDados(evento.target.textContent, evento.target.parentNode)
     })
 });
